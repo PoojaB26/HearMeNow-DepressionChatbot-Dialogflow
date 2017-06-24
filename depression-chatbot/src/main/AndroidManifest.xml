@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ai.api.poojab26">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <application
+        android:name="ai.api.poojab26.AIApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="ai.api.poojab26.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="ai.api.poojab26.AIButtonSampleActivity"
+            android:label="@string/title_activity_aibutton_sample"
+            android:parentActivityName="ai.api.poojab26.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.poojab26.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="ai.api.poojab26.AIServiceSampleActivity"
+            android:label="@string/title_activity_aiservice_sample"
+            android:parentActivityName="ai.api.poojab26.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.poojab26.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="ai.api.poojab26.AIDialogSampleActivity"
+            android:label="@string/title_activity_aidialog_sample"
+            android:parentActivityName="ai.api.poojab26.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.poojab26.MainActivity" />
+        </activity>
+
+        <activity
+            android:name="ai.api.poojab26.AISettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName="ai.api.poojab26.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.poojab26.MainActivity" />
+        </activity>
+            
+        <activity
+            android:name="ai.api.poojab26.AIWidgetActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Base.Theme.AppCompat.Dialog">
+
+        </activity>
+
+        <activity
+            android:name="ai.api.poojab26.AITextSampleActivity"
+            android:label="@string/title_activity_aitext_sample"
+            android:parentActivityName="ai.api.poojab26.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ai.api.poojab26.MainActivity" />
+        </activity>
+
+        <receiver android:name="ai.api.poojab26.AISampleAppWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ai_app_widget_info" />
+        </receiver>
+
+    </application>
+
+</manifest>
