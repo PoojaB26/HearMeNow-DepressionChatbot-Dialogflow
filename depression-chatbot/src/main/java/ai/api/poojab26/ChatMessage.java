@@ -17,6 +17,10 @@ public class ChatMessage {
 
     public String message;
 
+    public ChatMessage() {
+        super();
+    }
+
     public ChatMessage(boolean rightSide, String message) {
         super();
         this.rightSide = rightSide;

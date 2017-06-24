@@ -51,6 +51,8 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
     private RecyclerView recyclerView;
     private ChatAdapter mAdapter;
 
+    ChatMessage chatMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +73,10 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-        prepareListData();
+
+        //ChatMessage chatMessage = new ChatMessage();
+
+        //prepareListData();
 
     }
 
@@ -80,6 +85,9 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
         msgList.add(chatMessage);
 
         chatMessage = new ChatMessage(true, "Mad Max 2");
+        msgList.add(chatMessage);
+
+        chatMessage = new ChatMessage(true, "Hell Max 2");
         msgList.add(chatMessage);
     }
 
@@ -158,6 +166,7 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+
                 Log.d(TAG, "onResult");
 
                 resultTextView.setText(gson.toJson(response));
@@ -171,11 +180,16 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
 
                 final Result result = response.getResult();
                 Log.i(TAG, "Resolved query: " + result.getResolvedQuery());
+                chatMessage = new ChatMessage(true, result.getResolvedQuery());
+                msgList.add(chatMessage);
 
                 Log.i(TAG, "Action: " + result.getAction());
 
                 final String speech = result.getFulfillment().getSpeech();
                 Log.i(TAG, "Speech: " + speech);
+                chatMessage = new ChatMessage(false, result.getFulfillment().getSpeech());
+                msgList.add(chatMessage);
+
                 TTS.speak(speech);
 
                 final Metadata metadata = result.getMetadata();

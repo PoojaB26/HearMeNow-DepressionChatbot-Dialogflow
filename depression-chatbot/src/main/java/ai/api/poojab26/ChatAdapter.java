@@ -2,6 +2,7 @@ package ai.api.poojab26;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,11 +77,21 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     }
 
+    public ChatMessage getItem(int position) {
+        return msgList.get(position);
+    }
+
     @Override
     public int getItemViewType(int position) {
         // Just as an example, return 0 or 2 depending on position
         // Note that unlike in ListView adapters, types don't have to be contiguous
-        return position % 2 * 2;
+        ChatMessage chatMessage = getItem(position);
+        Log.d("TAG", String.valueOf(chatMessage.rightSide));
+        if(chatMessage.rightSide){
+            return 2;
+        }else
+            return 0;
+
     }
 
     @Override
