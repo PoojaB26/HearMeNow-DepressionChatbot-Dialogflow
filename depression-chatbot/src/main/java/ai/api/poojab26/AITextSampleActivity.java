@@ -2,17 +2,19 @@ package ai.api.poojab26;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -43,11 +45,11 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
 
     private TextView resultTextView;
     private EditText queryEditText;
-    private CheckBox eventCheckBox;
-
-    private Spinner eventSpinner;
-
     private AIDataService aiDataService;
+
+    private List<ChatMessage> msgList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private ChatAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,23 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
 
         initService();
 
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
+        mAdapter = new ChatAdapter(msgList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+        prepareListData();
+
+    }
+
+    private void prepareListData() {
+        ChatMessage chatMessage = new ChatMessage(false, "Mad Max");
+        msgList.add(chatMessage);
+
+        chatMessage = new ChatMessage(true, "Mad Max 2");
+        msgList.add(chatMessage);
     }
 
     private void initService() {
@@ -133,10 +151,7 @@ public class AITextSampleActivity extends BaseActivity implements View.OnClickLi
         task.execute(queryString, eventString, contextString);
     }
 
-    public void checkBoxClicked() {
-        eventSpinner.setEnabled(eventCheckBox.isChecked());
-        queryEditText.setVisibility(!eventCheckBox.isChecked() ? View.VISIBLE : View.GONE);
-    }
+
 
 
     private void onResult(final AIResponse response) {
