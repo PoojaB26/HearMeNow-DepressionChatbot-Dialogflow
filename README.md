@@ -1,3 +1,6 @@
+![winnerbadge](https://img.shields.io/badge/winner-mchacks%20nano%20'17-red.svg)
+
+
 # Inspiration
 We are living in a world where mental illness is labeled as a myth, where people believe that being unhappy is a choice. It's 2017, and we might be on a breakthrough in medical science for neurology, oncology, etc, but even today, depression, anxiety is not even considered a medical issue. Depression is a real thing, it is not something that can easily be shaken. People dealing with depression want to tell their stories to somebody and they are mostly afraid to speak to their close friends and relatives. Others are not even bothered to help. HearMeNow will talk to you like the best friend you have never met.
 
@@ -12,4 +15,8 @@ The chatbot is trained thrugh API.ai platform and the Android application is bui
 ### Demo
 [![Demo](https://github.com/PoojaB26/HearMeNow-Depression-Chatbot/blob/master/git.PNG)](https://www.youtube.com/watch?v=6n_OhtNz8eU 
 "Demo")
+
+
+
 Check this project on [Devpost](https://devpost.com/software/hearmenow)
+
