@@ -10,7 +10,7 @@ Everyone is familiar with Humans of New York and other inspired channels. Taking
 Taking a similar approach to Humans of New York workaround, I built a chatbot that will ask you about your problems indirectly and eventually find you solutions. When you are feeling suicidal, it will connect you to actual support groups near you.
 
 ## How I built it
-The chatbot is trained thrugh API.ai platform and the Android application is built in Android Studio.
+The chatbot is trained through API.ai platform and the Android application is built in Android Studio.
 
 ### Demo
 [![Demo](https://github.com/PoojaB26/HearMeNow-Depression-Chatbot/blob/master/git.PNG)](https://www.youtube.com/watch?v=6n_OhtNz8eU 
