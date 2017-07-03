@@ -13,9 +13,8 @@ Taking a similar approach to Humans of New York workaround, I built a chatbot th
 The chatbot is trained through API.ai platform and the Android application is built in Android Studio.
 
 ### Demo
-[![Demo](https://github.com/PoojaB26/HearMeNow-Depression-Chatbot/blob/master/git.PNG)](https://www.youtube.com/watch?v=6n_OhtNz8eU 
+[![Demo](https://media.giphy.com/media/CPziXywer6WCA/giphy.gif)](https://www.youtube.com/watch?v=6n_OhtNz8eU 
 "Demo")
-
 
 
 Check this project on [Devpost](https://devpost.com/software/hearmenow)
